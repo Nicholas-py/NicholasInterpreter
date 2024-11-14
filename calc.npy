@@ -1,0 +1,17 @@
+
+ok=input(":").lower()
+
+if "-" in ok:
+	Split=ok.split("-")
+	print(float(Split[0])-float(Split[1]))
+if "+" in ok:
+	Split=ok.split("+")
+	print(float(Split[0])+float(Split[1]))
+if "*" in ok:
+	Split=ok.split("*")
+	print(float(Split[0])*float(Split[1]))
+if "/" in ok:
+	Split=ok.split("/")
+	print(float(Split[0])/float(Split[1]))
+
+
