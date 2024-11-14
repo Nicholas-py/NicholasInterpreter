@@ -1,0 +1,7 @@
+print('"hey"')
+
+print('"hoy"')
+for i in range(10):
+  if i > 11:
+ print('print("hi again")')
+print("print('and the program finishes')")
