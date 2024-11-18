@@ -1,5 +1,6 @@
 from basefuncs import *
-from LineOfCode import *
+from LineOfCodeCreator import getlineobject
+from LineOfCode import MultiLineOfCode
 from accidents import *
 import sys
 basesys = sys.stdout
@@ -9,7 +10,7 @@ sys.setrecursionlimit(10)
 #input = myinput
 
 def isindentingline(line):
-    if len(line) == 0:
+    if len(line.strip()) == 0:
         return False
     return line.strip()[-1] == ':'
         
@@ -61,7 +62,7 @@ class Program:
         baseindent = getindent(lines[0])
         for i1 in range(len(lines)):
             lines[i1] = clearcomments(lines[i1])
-            lineobjects.append(LineOfCode(lines[i1].strip(),i1))
+            lineobjects.append(getlineobject(lines[i1].strip(),i1))
             indents.append(getindent(lines[i1]))
         
         indentations = {}

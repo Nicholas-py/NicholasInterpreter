@@ -1,4 +1,7 @@
+
 class LineOfCode:
+
+
     def __init__(self, line, linenumber):
         self.line = line
         self.parent = None
