@@ -3,7 +3,7 @@ import sys
 from execution import execute
 
 
-program = open('calc.npy','r').read()
+program = open('demo.npy','r').read()
 basesys = sys.stdout
 
 def preprocess(program):

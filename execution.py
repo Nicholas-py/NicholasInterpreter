@@ -31,6 +31,16 @@ def getindentlength(line):
         else:
             return
 
+def clearcomments(line):
+    string = ''
+    for i in str(line):
+        if i == '#':
+            return string
+        string += i
+    return string
+            
+
+
 def removeindent(line, indent):
     for i in range(len(indent)):
         if line[i] == indent[i]:
@@ -50,6 +60,7 @@ class Program:
         indents = []
         baseindent = getindent(lines[0])
         for i1 in range(len(lines)):
+            lines[i1] = clearcomments(lines[i1])
             lineobjects.append(LineOfCode(lines[i1].strip(),i1))
             indents.append(getindent(lines[i1]))
         
@@ -57,7 +68,7 @@ class Program:
         for i1 in range(len(lines)):
             if indents[i1] != baseindent:
                 if indents[i1] not in indentations:
-                    raise IndenTationError("Creative indentation")
+                    raise IndenTationError("Creative indentation"+str(indentations))
                 else:
                     lineobjects[i1].parent = indentations[indents[i1]]
             if isindentingline(lines[i1]):
@@ -83,9 +94,8 @@ class Program:
 
     def run(self):
         for adlfkhasdflueiowdh in self.lines:
-            exec(adlfkhasdflueiowdh)
+            exec(str(adlfkhasdflueiowdh))
             #adlfkhasdflueiowdh.run()
-#        exec(self.string)
 
     def __call__(self):
         self.run()

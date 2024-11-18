@@ -1,7 +1,8 @@
-print('"hey"')
 
-print('"hoy"')
+print('"this will not print"')
+
 for i in range(10):
-  if i > 11:
- print('print("hi again")')
+  if i > 11:   #Negative indentation
+ print('print("hi again")')  #Will print 32 times
+ 
 print("print('and the program finishes')")
