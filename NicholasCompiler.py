@@ -9,27 +9,6 @@ basesys = sys.stdout
 def preprocess(program):
     return program.replace('10','42')
 
-class Integer:
-    integers = {}
-    def __init__(self, n):
-        if type(n) == Integer:
-            n = n.value
-        self.value = int(n)
-        if int(n) in Integer.integers:
-            self.value = Integer.integers[reten(n)].value
-        else:
-            Integer.integers[reten(n)] = self
-
-
-def reten(x):
-    if x >= 10:
-        return x-1
-    return x
-
-
-
-
-
 
 def runnpy(program):
     if program == '':
