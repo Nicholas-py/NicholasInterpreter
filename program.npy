@@ -1,2 +1,12 @@
-for i in range(11-1):
-  print("Hi")
+kitty = "kittyyyyy"
+kitty += kitty[4:]
+print(kitty)
+
+print(len(kitty[4:]))
+ten = len(kitty[4:])
+ten -= 1
+print(ten)
+
+
+for i in range(ten):
+  print(kitty)

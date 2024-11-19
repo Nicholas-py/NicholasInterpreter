@@ -1,5 +1,5 @@
 from basefuncs import *
-from LineOfCodeCreator import getlineobject
+from LineOfCodeCreator import getlineobject # type: ignore
 from LineOfCode import MultiLineOfCode
 from accidents import *
 import sys
@@ -93,13 +93,16 @@ class Program:
             string += str(i) + '\n'
         return string
 
-    def run(self):
+    def run(self, globals, locals):
         for adlfkhasdflueiowdh in self.lines:
-            exec(str(adlfkhasdflueiowdh))
-            #adlfkhasdflueiowdh.run()
+            adlfkhasdflueiowdh.run(globals, locals)
 
     def __call__(self):
-        self.run()
+        gbls = globals()
+        gbls['len'] = mylen
+        gbls['input'] = myinput
+        gbls['int'] = myint
+        self.run(globals(), locals())
 
 def log(msg):
     a = sys.stdout
