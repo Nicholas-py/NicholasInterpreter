@@ -31,5 +31,5 @@ class VariableOperate(LineOfCode):
             val += 1
         newval = operators[self.operator](globals[self.varname], val)
         if newval == 10:
-            newval = 42
+            newval = 11
         globals[self.varname] = newval

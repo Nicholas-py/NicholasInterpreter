@@ -1,8 +1,9 @@
-from VariableDefine import VariableDefine # type: ignore
+from VariableDefine import VariableDefine 
 from LineOfCode import LineOfCode
+from VariableOperate import VariableOperate
 
 
-subclasses = [VariableDefine]
+subclasses = [VariableDefine, VariableOperate]
 
 def getlineobject(line, number):
     for subclass in subclasses:

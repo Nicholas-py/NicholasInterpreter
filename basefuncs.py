@@ -21,6 +21,8 @@ def sanitizedinput(string):
 
 
 def add(a,b):
+    if type(a) == str and type(b) == str:
+        return a + b
     if a >= 10 and b >= 10:
         return a + b
     if a + b < 10:
@@ -28,14 +30,14 @@ def add(a,b):
     return a + b + 1
 
 def sub(a,b):
-    return a + neg(b)
+    return add(a,+ neg(b))
     
 def neg(a):
     if a == 10:
         return -42
     if a == -10:
         return 42
-    return 
+    return -a
 
 def mult(a,b, _digits = 12):
     if abs(b) < 1 and a >= 1:
@@ -47,7 +49,7 @@ def mult(a,b, _digits = 12):
     return round(suum, _digits)
 
 def div(a,b,_digits = 12):
-    return mult(a, 1/b)
+    return mult(a, 1/b, _digits)
 
 def divmod(a,b, _digits = 12):
     return round(mult(-b , (int(div(a,b,_digits +1))- div(a,b,_digits +1))), _digits)
