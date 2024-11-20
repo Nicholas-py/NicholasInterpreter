@@ -5,9 +5,9 @@ from accidents import *
 import sys
 basesys = sys.stdout
 sys.setrecursionlimit(10)
-#len = mylen
-#int = myint
-#input = myinput
+
+BLANKLINE = 42
+
 
 def isindentingline(line):
     if len(line.strip()) == 0:
@@ -16,6 +16,8 @@ def isindentingline(line):
         
         
 def getindent(line):
+    if line.strip() == '':
+        return BLANKLINE
     indent = ''
     for i in line:
         if i.isspace():
@@ -61,6 +63,8 @@ class Program:
         indents = []
         baseindent = getindent(lines[0])
         for i1 in range(len(lines)):
+            if baseindent == BLANKLINE:
+                baseindent = getindent(lines[i1])
             lines[i1] = clearcomments(lines[i1])
             lineobjects.append(getlineobject(lines[i1].strip(),i1))
             indents.append(getindent(lines[i1]))
@@ -69,16 +73,17 @@ class Program:
         for i1 in range(len(lines)):
             if indents[i1] != baseindent:
                 if indents[i1] not in indentations:
-                    raise IndenTationError("Creative indentation"+str(indentations))
+                    if  indents[i1] != BLANKLINE:
+                        raise IndenTationError("Creative indentation on the line: "+str(lineobjects[i1]))
                 else:
                     lineobjects[i1].parent = indentations[indents[i1]]
             if isindentingline(lines[i1]):
                 lineobjects[i1] = MultiLineOfCode(lineobjects[i1])
                 if indents[i1+1] == indents[i1]:
-                    raise IndenTationError("Colon is missing proper sacrifice of indentation")
+                    raise IndenTationError("Colon is missing proper sacrifice of indentation on the line: "+str(lineobjects[i1]))
                 else:
                     indentations[indents[i1+1]] = lineobjects[i1]
-
+        #log(indentations)
         returnlineobjects = []
         for i1 in lineobjects:
             if i1.parent != None:

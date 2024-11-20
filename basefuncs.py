@@ -1,5 +1,5 @@
 import sys
-
+basesys = sys.stdout
 
 def deten(x):
     if x >= 10 and x <= 20:
@@ -14,7 +14,10 @@ def twotenifiedfunc(basefunc):
     return lambda x,y: deten(basefunc(x,y))
 
 def sanitizedinput(string):
+    currentsys = sys.stdout
+    sys.stdout = basesys
     print(string)
+    sys.stdout = currentsys
     text = sys.stdin.readline()
     text = text.replace('10', '42')
     return text

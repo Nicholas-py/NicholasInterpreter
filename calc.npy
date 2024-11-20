@@ -1,6 +1,6 @@
 
 ok=input(":").lower()
-
+print('Calculating')
 if "-" in ok:
 	Split=ok.split("-")
 	print(float(Split[0])-float(Split[1]))

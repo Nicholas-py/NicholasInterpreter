@@ -1,9 +1,9 @@
 from accidents import *
 import sys
-from execution import execute
+from execution import *
 
 
-program = open('program.npy','r').read()
+program = open('calc.npy','r').read()
 basesys = sys.stdout
 
 def preprocess(program):
